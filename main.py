@@ -13,7 +13,7 @@ from SwSpotify import spotify
 
 # creating a variable to open the port at 'COM3' for the communication process at 9600 baud.
 # the functions for 'serial.Serial' is: __init__(port, baudrate)
-arduino_uno = serial.Serial('com3', 9600)
+arduino_uno = serial.Serial('/dev/cu.usbmodem1301', 9600)
 
 # creating a variable to store the old song that was playing. This variable is crucial for song detection.
 old_song = " "
