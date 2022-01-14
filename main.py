@@ -47,7 +47,7 @@ def analyze_signal():
 
         # code to play the previous song if the keyword 'back' is detected through the outputted signal.
         # using the PyAutoGui module's keyboard function called 'hotkey' to activate the 'ctrl + left' input to play the previous song.
-        pyautogui.hotkey('ctrl', 'left')
+        pyautogui.hotkey('cmd', 'left')
 
         # time delay.
         time.sleep(0.2)
@@ -56,7 +56,7 @@ def analyze_signal():
 
         # code to play the next song if the keyword 'next' is detected through the outputted signal.
         # using the same PyAutoGui 'hotkey' function as before to activate the 'ctrl + right' input to play the upcoming/next song.
-        pyautogui.hotkey('ctrl', 'right')
+        pyautogui.hotkey('cmd', 'right')
 
         # time delay.
         time.sleep(0.2)
