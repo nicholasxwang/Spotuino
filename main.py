@@ -94,12 +94,14 @@ def get_song(old_song):
 
     # code to tie/update the old song to the current song.
     song_old = current_song
+    return get_song
 
 # creating a while-loop.
 
 while True:
-    print(spotify.song())
     # calling the function to analyze the button signal from the Arduino.
-    analyze_signal()
+    #analyze_signal()
 
     # calling the funct
+    song = spotify.song()
+    get_song(song)
