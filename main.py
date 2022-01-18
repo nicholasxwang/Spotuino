@@ -13,7 +13,7 @@ from SwSpotify import spotify
 
 # creating a variable to open the port at 'COM3' for the communication process at 9600 baud.
 # the functions for 'serial.Serial' is: __init__(port, baudrate)
-arduino_uno = serial.Serial('/dev/cu.usbmodem1301', 9600)
+arduino_uno = serial.Serial('COM3', 9600)
 
 # creating a variable to store the old song that was playing. This variable is crucial for song detection.
 old_song = " "
@@ -90,15 +90,18 @@ def get_song(old_song):
     if current_song != old_song:
         #https://gist.github.com/slayerjay/4460208
         # using the pySerial's 'write()' function to write the song name with encoding to the arduino through the COM3 port.
-        #arduino_uno.write(spotify.song().encode())
+        #https://stackoverflow.com/questions/49348530/send-a-string-from-python-to-arduino-lcd
+        arduino_uno.write(str(spotify.song()).encode())
+        print(spotify.song())
         #serial.Serial(13, 9600).write(current_song)
 
     # code to tie/update the old song to the current song.
     song_old = current_song
-    return get_song
+    return current_song
 
 # creating a while-loop.
 song = ""
+time.sleep(2)
 while True:
     # calling the function to analyze the button signal from the Arduino.
     #analyze_signal()
