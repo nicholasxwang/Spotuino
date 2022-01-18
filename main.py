@@ -97,11 +97,11 @@ def get_song(old_song):
     return get_song
 
 # creating a while-loop.
-
+song = ""
 while True:
     # calling the function to analyze the button signal from the Arduino.
     #analyze_signal()
 
     # calling the funct
-    song = spotify.song()
-    get_song(song)
+
+    song = get_song(song)
