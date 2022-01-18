@@ -88,9 +88,10 @@ def get_song(old_song):
 
     # creating a nested if-statement to send the arduino the song name if the previous song and the current song are different.
     if current_song != old_song:
-
+        #https://gist.github.com/slayerjay/4460208
         # using the pySerial's 'write()' function to write the song name with encoding to the arduino through the COM3 port.
-        arduino_uno.write(spotify.song().encode())
+        #arduino_uno.write(spotify.song().encode())
+        #serial.Serial(13, 9600).write(current_song)
 
     # code to tie/update the old song to the current song.
     song_old = current_song
