@@ -18,6 +18,8 @@ arduino_uno = serial.Serial('/dev/cu.usbmodem1301', 9600)
 # creating a variable to store the old song that was playing. This variable is crucial for song detection.
 old_song = " "
 
+print("[connection] Connected")
+
 # created a function to store all the code for analyzing the button signal sent to the python script through the COM3 port.
 def analyze_signal():
 
@@ -31,7 +33,12 @@ def analyze_signal():
     3. a keyword 'next' can be printed, indicating to play the next song that is after the current one playing.
     '''
     # printing the signal to the user via terminal.
-    print(signal)
+    # print(type(signal))
+    #print(signal)
+    #print(arduino_uno)
+    #print(type(arduino_uno))
+    print(arduino_uno.readline())
+
 
     # creating an if-statement to check for the keywords being in the signal sent from the Arduino.
     if 'stop' in signal:
@@ -42,12 +49,11 @@ def analyze_signal():
 
         # time delay.
         time.sleep(0.2)
-
     elif 'back' in signal:
 
         # code to play the previous song if the keyword 'back' is detected through the outputted signal.
         # using the PyAutoGui module's keyboard function called 'hotkey' to activate the 'ctrl + left' input to play the previous song.
-        pyautogui.hotkey('cmd', 'left')
+        pyautogui.hotkey('ctrl', 'left')
 
         # time delay.
         time.sleep(0.2)
@@ -56,7 +62,7 @@ def analyze_signal():
 
         # code to play the next song if the keyword 'next' is detected through the outputted signal.
         # using the same PyAutoGui 'hotkey' function as before to activate the 'ctrl + right' input to play the upcoming/next song.
-        pyautogui.hotkey('cmd', 'right')
+        pyautogui.hotkey('ctrl', 'right')
 
         # time delay.
         time.sleep(0.2)
@@ -90,8 +96,9 @@ def get_song(old_song):
     song_old = current_song
 
 # creating a while-loop.
-while True:
 
+while True:
+    print(spotify.song())
     # calling the function to analyze the button signal from the Arduino.
     analyze_signal()
 
