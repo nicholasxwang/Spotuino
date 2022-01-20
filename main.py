@@ -102,13 +102,15 @@ def get_song(old_song):
 
 # creating a while-loop.
 song = ""
-time.sleep(5)
-arduino_uno.write("Hello World!".encode())
+time.sleep(2)
+print("kill dis")
+while True:
+    arduino_uno.write("Hello World!".encode())
 # while True:
 #
 #     # calling the function to analyze the button signal from the Arduino.
 #     #analyze_signal()
 #
 #     # calling the funct
-#
-#     song = get_song(song)
+
+#    song = get_song(song)
